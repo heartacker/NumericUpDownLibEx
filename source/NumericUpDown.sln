@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MLibTest", "MLibTest", "{83
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{C69AB586-96F2-48A7-B2AA-8294DE1E1C4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLocator", "Demo\MLibTest\Components\ServiceLocator\ServiceLocator.csproj", "{252126D1-E1D9-49C3-910B-FCF2266265EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLocator", "Demo\MLibTest\Components\ServiceLocator\ServiceLocator.csproj", "{252126D1-E1D9-49C3-910B-FCF2266265EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "Demo\MLibTest\Components\Settings\Settings\Settings.csproj", "{2807B493-CC2E-402E-901A-EB138698FEDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Settings", "Demo\MLibTest\Components\Settings\Settings\Settings.csproj", "{2807B493-CC2E-402E-901A-EB138698FEDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsModel", "Demo\MLibTest\Components\Settings\SettingsModel\SettingsModel.csproj", "{9B0BA841-5A2F-4ED3-A908-253DBCA70E77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsModel", "Demo\MLibTest\Components\Settings\SettingsModel\SettingsModel.csproj", "{9B0BA841-5A2F-4ED3-A908-253DBCA70E77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpDownDemoLib", "Demo\UpDownDemoLib\UpDownDemoLib.csproj", "{ED3A742D-4055-4DA2-BBCE-74E817B211BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpDownDemoLib", "Demo\UpDownDemoLib\UpDownDemoLib.csproj", "{ED3A742D-4055-4DA2-BBCE-74E817B211BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{5FC97D08-2690-4233-B3D2-582FBD6CB6EB}"
 EndProject
