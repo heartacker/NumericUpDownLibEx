@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.0;net40</TargetFrameworks>
@@ -11,11 +11,11 @@
     <Company>Open Source</Company>
     <Product>NumericUpDownLib</Product>
     <Copyright>2013-2023</Copyright>
-    <Description>Provides a numeric up down WPF control that can be used to edit (integer, byte, decimal, double, float, short and many more) values with a textbox and/or up/down arrow (repeat) buttons. Editing can be based on input via mouse wheel, mouse drag, cursor keys, or text editing.</Description>
-    <PackageProjectUrl>https://github.com/Dirkster99/NumericUpDownLib</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Dirkster99/NumericUpDownLib</RepositoryUrl>
-    <PackageId>Dirkster.NumericUpDownLib</PackageId>
-    <Authors>https://github.com/Dirkster99/NumericUpDownLib</Authors>
+    <Description>(fork) externsion for my purpose, Provides a numeric up down WPF control that can be used to edit (integer, byte, decimal, double, float, short and many more) values with a textbox and/or up/down arrow (repeat) buttons. Editing can be based on input via mouse wheel, mouse drag, cursor keys, or text editing.</Description>
+    <PackageProjectUrl>https://github.com/heartacker/NumericUpDownLibEx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/heartacker/NumericUpDownLibEx</RepositoryUrl>
+    <PackageId>Dirkster.NumericUpDownLibEx</PackageId>
+    <Authors>https://github.com/heartacker/</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>numericupdown numeric up down integer float double percentage increment decrement custom wpf control mvvm c# .net metro black light themed control library</PackageTags>
     <PackageReleaseNotes>Adding features and fixes please refer to release notes.</PackageReleaseNotes>
