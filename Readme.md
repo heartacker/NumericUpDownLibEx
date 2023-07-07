@@ -7,6 +7,10 @@
 
 # Overview
 
+## This is fork
+
+**The changed code in**: https://github.com/heartacker/NumericUpDownLibEx
+
 ## Fixes and Features Added in Version 3.4
 
 - [#55 Bugfix: Format-Text must return parsed value, else value in textbox will be overwritten with "LastEditingNumericValue" if "IsUpdateValueWhenLostFocus" is enabled on lost focus](https://github.com/Dirkster99/NumericUpDownLib/pull/55)
@@ -75,15 +79,15 @@ This release has been authored by [heartacker](https://github.com/heartacker) :p
 ## Features Added in Version 3.0
 
 - Display and Edit of Hex values
-- Text portion editing can be: 
-  - Cancelled with Escape key or can be  
+- Text portion editing can be:
+  - Cancelled with Escape key or can be
   - Okay'ed with Enter Key
 
-- The Edit TextBox displays during editing a Red or Green indicator (in upper left corner) depending on whether current text is: 
-  - a valid number (GREEN) or  
+- The Edit TextBox displays during editing a Red or Green indicator (in upper left corner) depending on whether current text is:
+  - a valid number (GREEN) or
   - not valid number (RED)
 
-- Dependency Features Added:  
+- Dependency Features Added:
   - IsLargeStepEnabled
   - FormatString
   - NumberStyle
