@@ -10,6 +10,11 @@
 ## This is fork
 
 **The changed code in**: https://github.com/heartacker/NumericUpDownLibEx
+## Version 3.4.0.1
+
+- [#59](https://github.com/Dirkster99/NumericUpDownLib/issues/59)
+- [#66](https://github.com/Dirkster99/NumericUpDownLib/issues/66)
+- [demo update and come code fix](https://github.com/Dirkster99/NumericUpDownLib/pull/63)
 
 ## Fixes and Features Added in Version 3.4
 
