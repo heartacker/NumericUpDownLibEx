@@ -1,0 +1,265 @@
+﻿<!--  Copyright (c) Microsoft Corporation and Contributors.  -->
+<!--  Licensed under the MIT License.  -->
+
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="using:NumericUpDownLib.WinUI.Base"
+    xmlns:contract5NotPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
+    xmlns:contract5Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
+    xmlns:contract6Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,6)"
+    xmlns:contract7NotPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,7)"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
+    xmlns:contract8Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,8)"
+    xmlns:controls="using:NumericUpDownLib.WinUI"
+    xmlns:conv="using:NumericUpDownLib.WinUI.Converters">
+    <ResourceDictionary.MergedDictionaries>
+        <!--<ResourceDictionary Source="/NumericUpDownLib.WinUI;component/Base/InputBaseUpDown.xaml"></ResourceDictionary>-->
+
+        <ResourceDictionary>
+            <Style x:Key="InputBaseUpDownStyle1" TargetType="base:InputBaseUpDown">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="base:InputBaseUpDown">
+                            <Grid>
+                                <CheckBox IsChecked="{TemplateBinding IsReadOnly}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+
+        <ResourceDictionary>
+            <Style x:Key="InputBaseUpDownStyle" TargetType="base:InputBaseUpDown">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="base:InputBaseUpDown">
+                            <Border
+                                MinHeight="34"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid
+                                    Height="{TemplateBinding Height}"
+                                    Margin="0,0,2,0"
+                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                    VerticalAlignment="Top">
+                                    <Grid.Resources>
+                                        <conv:ByteToPlaceHolderStringConverter x:Key="ByteToPlaceHolderStringConverter" />
+                                        <conv:BoolToVisibilityPropConverter x:Key="BoolToVisibilityConverter" />
+                                        <conv:HorizontalContentAlignmentToTextAlignmentConverter x:Key="HCA2TA" />
+                                        <conv:SpinButtonPlacementModeToVisibilityPropConverter x:Key="SPBM2Visibility" />
+                                        <conv:SpinButtonPlacementModeToOrientationConverter x:Key="SPBM2Orientation" />
+                                        <conv:StringNoneToVisibilityPropConverter x:Key="String2Visual" />
+                                        <conv:OrientationTo01Converter x:Key="Ori20" />
+                                        <conv:OrientationTo10Converter x:Key="Ori21" />
+
+                                    </Grid.Resources>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--  ! Header  -->
+                                    <!--  Width="{Binding ElementName=PART_Measuring_Element, Path=Width, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" HorizontalAlignment="Right"  -->
+                                    <ContentPresenter
+                                        x:Name="HeaderContentPresenter"
+                                        Grid.Row="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Path=Orientation, Converter={StaticResource Ori21}}"
+                                        Grid.Column="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Path=Orientation, Converter={StaticResource Ori20}}"
+                                        Margin="{ThemeResource TextBoxTopHeaderMargin}"
+                                        Padding="1,5,10,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Stretch"
+                                        Content="{TemplateBinding Header}"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="Normal"
+                                        Foreground="{ThemeResource TextControlHeaderForeground}"
+                                        TextWrapping="Wrap"
+                                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Path=Header, Converter={StaticResource String2Visual}}" />
+
+
+
+                                    <!--  控件  -->
+                                    <Grid
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Right"
+                                        BorderThickness="0"
+                                        CornerRadius="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid
+                                            Grid.Row="0"
+                                            Grid.RowSpan="1"
+                                            Grid.Column="0">
+                                            <!--
+                                                Hidden measuring textbox ensure reservation of enough UI space
+                                                according to DisplayLength dependency property
+                                            -->
+                                            <TextBox
+                                                x:Name="PART_Measuring_Element"
+                                                MinWidth="0"
+                                                Margin="0,1,0,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Stretch"
+                                                HorizontalContentAlignment="Left"
+                                                VerticalContentAlignment="{TemplateBinding VerticalAlignment}"
+                                                AcceptsReturn="False"
+                                                Background="#00000000"
+                                                BorderThickness="0"
+                                                FontFamily="Consolas"
+                                                Foreground="#00000000"
+                                                IsColorFontEnabled="False"
+                                                IsEnabled="False"
+                                                IsReadOnly="True"
+                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Path=DisplayLength, Converter={StaticResource ByteToPlaceHolderStringConverter}}"
+                                                TextAlignment="Right"
+                                                TextWrapping="NoWrap"
+                                                Visibility="Visible" />
+
+                                            <!--  Width="{Binding ElementName=PART_Measuring_Element, Path=ActualWidth, UpdateSourceTrigger=Default, Mode=OneWay}"  -->
+                                            <TextBox
+                                                x:Name="PART_TextBox"
+                                                Margin="0,1,0,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalContentAlignment="Stretch"
+                                                contract7Present:CornerRadius="{TemplateBinding CornerRadius}"
+                                                AcceptsReturn="False"
+                                                Background="{TemplateBinding Background}"
+                                                FontFamily="Consolas"
+                                                FontSize="{TemplateBinding FontSize}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                Foreground="{TemplateBinding Foreground}"
+                                                IsReadOnly="{TemplateBinding IsReadOnly}"
+                                                ManipulationMode="Scale"
+                                                PlaceholderText="{TemplateBinding PlaceholderText}"
+                                                TextAlignment="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource HCA2TA}}"
+                                                TextWrapping="NoWrap" />
+                                            <!--  BorderBrush="{TemplateBinding BorderBrush}"  -->
+                                            <!--  BorderThickness="{TemplateBinding BorderThickness}"  -->
+                                            <!--  Style="{StaticResource NumberBoxTextBoxStyle}"  -->
+                                            <!--  SelectionHighlightColor="{TemplateBinding SelectionHighlightColor}"  -->
+                                            <!--  contract7Present:SelectionFlyout="{TemplateBinding SelectionFlyout}"  -->
+                                            <!--  InputScope="{TemplateBinding InputScope}"  -->
+                                            <!--  PreventKeyboardDisplayOnProgrammaticFocus="{TemplateBinding PreventKeyboardDisplayOnProgrammaticFocus}"  -->
+                                            <!--  TextReadingOrder="{TemplateBinding TextReadingOrder}"  -->
+
+                                            <!--  Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Value,Mode=OneWay}"  -->
+
+                                            <TextBlock
+                                                Width="5"
+                                                Margin="0,0,5,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Top"
+                                                Foreground="{TemplateBinding EditingColorBrush}"
+                                                Text="*"
+                                                Visibility="{TemplateBinding EditingVisibility}" />
+                                        </Grid>
+
+                                        <StackPanel
+                                            x:Name="PART_IncDecStackPanel"
+                                            Grid.Row="0"
+                                            Grid.RowSpan="1"
+                                            Grid.Column="1"
+                                            MaxHeight="32"
+                                            Margin="0,0,1,-2"
+                                            Padding="0,0,0,-2"
+                                            VerticalAlignment="Stretch"
+                                            Background="{Binding ElementName=PART_TextBox, Path=Background, Mode=OneWay}"
+                                            BorderBrush="{Binding ElementName=PART_TextBox, Path=BorderBrush, Mode=OneWay}"
+                                            BorderThickness="0,0.5,0.5,1.5"
+                                            CornerRadius="0"
+                                            Orientation="{Binding Path=SpinButtonPlacementMode, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SPBM2Orientation}}"
+                                            Visibility="{Binding Path=SpinButtonPlacementMode, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SPBM2Visibility}}">
+
+                                            <!--  ArrowUp Increase value button  -->
+                                            <RepeatButton
+                                                x:Name="PART_IncrementButton"
+                                                Height="15"
+                                                Margin="0"
+                                                Padding="3,0,3,0"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                HorizontalContentAlignment="Center"
+                                                Background="Transparent"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{ThemeResource NumberBoxPopupSpinButtonBorderThickness}"
+                                                Command="{Binding Path=IncreaseCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                                CornerRadius="{ThemeResource ControlCornerRadius}"
+                                                Foreground="{ThemeResource ButtonForegroundThemeBrush}">
+                                                <FontIcon Glyph="&#xE971;" />
+                                            </RepeatButton>
+
+                                            <!--  ArrowDown Decrease value button  -->
+                                            <RepeatButton
+                                                x:Name="PART_DecrementButton"
+                                                Height="15"
+                                                Margin="0"
+                                                Padding="3,0,3,0"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                HorizontalContentAlignment="Center"
+                                                Background="Transparent"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{ThemeResource NumberBoxPopupSpinButtonBorderThickness}"
+                                                Command="{Binding Path=DecreaseCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                                CornerRadius="{ThemeResource ControlCornerRadius}"
+                                                Foreground="{ThemeResource ButtonForegroundThemeBrush}">
+                                                <FontIcon Glyph="&#xE972;" />
+                                            </RepeatButton>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:ByteUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:DecimalUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:DoubleUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:FloatUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:Hex32UpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:LongUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:NumericUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:SByteUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:ShortUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:UIntegerUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:ULongUpDown" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="controls:UShortUpDown" />
+
+            <!--  Styles a byte based numeric up down control based on the InputBaseUpDown control style  -->
+
+            <!--
+
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:DecimalUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:DoubleUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:LongUpDown}" />
+
+            -->
+
+            <!--  Styles an Integer based numeric up down control based on the InputBaseUpDown control style  -->
+
+            <!--
+
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:NumericUpDown}" />
+
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:SByteUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:ShortUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:FloatUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:UIntegerUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:UShortUpDown}" />
+            <Style BasedOn="{StaticResource InputBaseUpDownStyle}" TargetType="{x:Bind controls:ULongUpDown}" />
+            -->
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows10.0.17763.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>NumericUpDownLib.WinUI</RootNamespace>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <SignAssembly>False</SignAssembly>
+    <Title>NumericUpDownLib For WinUI 3</Title>
+    <Authors>heartacker</Authors>
+    <Description>Inspired and used NumericUpDownLib code, which is now made specifically for WinUI3</Description>
+    <PackageProjectUrl>https://github.com/heartacker/NumericUpDownLib.WinUI</PackageProjectUrl>
+    <PackageIcon>NumberBox.png</PackageIcon>
+    <RepositoryUrl>https://github.com/heartacker/NumericUpDownLib.WinUI</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>NumericUpDownLib;NumberBox;WinUI3,XAML;</PackageTags>
+    <IncludeSymbols>False</IncludeSymbols>
+    <PackageReleaseNotes>2023年3月28日: v1.0.0 Init Version</PackageReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Base\InputBaseUpDown1.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Base\InputBaseUpDown.xaml" />
+    <None Remove="Base\InputBaseUpDown.xaml1" />
+    <None Remove="Base\InputBaseUpDown1.xaml" />
+    <None Remove="Themes\Generic.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Base\InputBaseUpDown1.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NumberBox.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+      <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230913002" />
+      <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.23475.1-preview" />
+      <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+      <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Base\InputBaseUpDown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Base\InputBaseUpDown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>

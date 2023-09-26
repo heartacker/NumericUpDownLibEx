@@ -1,0 +1,11 @@
+<!--  Copyright (c) Microsoft Corporation and Contributors.  -->
+<!--  Licensed under the MIT License.  -->
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="using:NumericUpDownLib.WinUI.Base"
+    xmlns:controls="using:NumericUpDownLib.WinUI"
+    xmlns:conv="using:NumericUpDownLib.WinUI.Converters"
+    xmlns:local="using:NumericUpDownLib.WinUI.Base">
+</ResourceDictionary>
