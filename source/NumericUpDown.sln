@@ -22,7 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{5FC97D08-2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericUpDownLib", "NumericUpDownLib\NumericUpDownLib.csproj", "{E542BEED-60F4-48B0-8AC6-24DBFC03B0C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject", "NUnitTestProject\NUnitTestProject.csproj", "{5A912DB5-3CE8-4871-B8C3-5EF95CC73FA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericUpDownLib.WinUI", "NumericUpDownLib.WinUI\NumericUpDownLib.WinUI.csproj", "{5A9218F2-51F6-4A3A-8B9D-66ADD0DE47E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericUpDownLib.WinUI.Demo", "NumericUpDownLib.WinUI.Demo\NumericUpDownLib.WinUI.Demo.csproj", "{BB1B4850-5958-4F3F-883C-674BEC26F3F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
