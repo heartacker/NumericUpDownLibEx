@@ -1,0 +1,17 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:NumericUpDownLib.Avalonia">
+    <Design.PreviewWith>
+        <controls:BaseNumericUpDown />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|BaseNumericUpDown">
+        <!--  Set Defaults  -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <TextBlock Text="Templated Control" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
