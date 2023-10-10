@@ -10,7 +10,7 @@ public class NumericUpDown : InputBaseUpDown
     /// (requires additional check of bounds) or not.
     /// </summary>
     public static readonly StyledProperty<int> ValueProperty =
-        AvaloniaProperty.Register<InputBaseUpDown, int>(nameof(ValueProperty),
+        AvaloniaProperty.Register<NumericUpDown, int>(nameof(ValueProperty),
             defaultValue: (0));
 
     /// <summary>
