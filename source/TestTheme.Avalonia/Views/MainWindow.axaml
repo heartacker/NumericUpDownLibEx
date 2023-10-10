@@ -20,12 +20,15 @@
         -->
         <vm:MainWindowViewModel />
     </Design.DataContext>
-    <Grid>
+    <StackPanel>
+        <Button Content="Theme" Click="ChangeTheme"/>
         <TextBlock
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Text="{Binding Greeting}" />
-        <nud:BaseNumericUpDown />
-    </Grid>
+        <NumericUpDown  FormatString="f3" NumberFormat=""/>
+        <nud:IntegerUpDown />
+        <nud:NumericUpDown />
+    </StackPanel>
 
 </Window>

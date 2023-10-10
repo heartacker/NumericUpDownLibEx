@@ -6,12 +6,15 @@ using Avalonia.Markup.Xaml;
 using TestTheme.Avalonia.ViewModels;
 using TestTheme.Avalonia.Views;
 
+using HotAvalonia;
+
 namespace TestTheme.Avalonia
 {
     public partial class App : Application
     {
         public override void Initialize()
         {
+            this.EnableHotReload(); // Ensure this line **precedes** `AvaloniaXamlLoader.Load(this);`
             AvaloniaXamlLoader.Load(this);
         }
 
