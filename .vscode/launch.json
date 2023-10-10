@@ -26,5 +26,16 @@
             "console": "internalConsole",
             "stopAtEntry": false
         },
+        {
+            "name": "TestTheme.Avalonia",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildTestAvalonia",
+            "program": "${workspaceFolder}/source/TestTheme.Avalonia/bin/Debug/net7.0/TestTheme.Avalonia",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
     ]
 }
