@@ -1,65 +1,59 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows10.0.19041.0</TargetFramework>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
-    <RootNamespace>NumericUpDownLib.WinUI.Demo</RootNamespace>
-    <ApplicationIcon>Assets/WindowIcon.ico</ApplicationIcon>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Platforms>x64;arm64</Platforms>
-    <RuntimeIdentifiers>win10-x64;win10-arm64</RuntimeIdentifiers>
-    <PublishProfile>Properties\PublishProfiles\win10-$(Platform).pubxml</PublishProfile>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <UseWinUI>true</UseWinUI>
-    <!-- YOU HAVE TO DOWNLOAD THE SDK
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows10.0.19041.0</TargetFramework>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RootNamespace>NumericUpDownLib.WinUI.Demo</RootNamespace>
+		<ApplicationIcon>Assets/WindowIcon.ico</ApplicationIcon>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<Platforms>x64;arm64</Platforms>
+		<RuntimeIdentifiers>win10-x64;win10-arm64</RuntimeIdentifiers>
+		<PublishProfile>Properties\PublishProfiles\win10-$(Platform).pubxml</PublishProfile>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWinUI>true</UseWinUI>
+		<!-- YOU HAVE TO DOWNLOAD THE SDK
     https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads WHEN
     WindowsAppSDKSelfContained=False-->
-    <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
-    <EnableMsixTooling>false</EnableMsixTooling>
-    <!-- https://github.com/microsoft/WindowsAppSDK/issues/1762#issuecomment-1017415180 -->
-    <!-- https://learn.microsoft.com/zh-cn/windows/apps/windows-app-sdk/downloads#current-releases -->
-    <WindowsPackageType>None</WindowsPackageType>
-  </PropertyGroup>
+		<WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+		<EnableMsixTooling>false</EnableMsixTooling>
+		<!-- https://github.com/microsoft/WindowsAppSDK/issues/1762#issuecomment-1017415180 -->
+		<!-- https://learn.microsoft.com/zh-cn/windows/apps/windows-app-sdk/downloads#current-releases -->
+		<WindowsPackageType>None</WindowsPackageType>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Manifest Include="$(ApplicationManifest)" />
-  </ItemGroup>
+	<ItemGroup>
+		<Manifest Include="$(ApplicationManifest)" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230628000-preview1" />
-    <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
-    <PackageReference Include="WinUIEx" Version="2.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.231008000" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+		<PackageReference Include="WinUIEx" Version="2.3.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NumericUpDownLib.WinUI\NumericUpDownLib.WinUI.csproj" />
-    <ProjectReference
-      Include="..\NumericUpDownLib.WinUI.Demo.Core\NumericUpDownLib.WinUI.Demo.Core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\NumericUpDownLib.WinUI\NumericUpDownLib.WinUI.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup
-    Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
-    <ProjectCapability Include="Msix" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<ProjectCapability Include="Msix" />
+	</ItemGroup>
 
-  <PropertyGroup
-    Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
-    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+	</PropertyGroup>
 
-  <Target Name="_RemoveFrameworkReferences"
-    BeforeTargets="_ConvertItems;_CalculateInputsForGenerateCurrentProjectAppxManifest">
-    <ItemGroup>
-      <FrameworkSdkReference Remove="@(FrameworkSdkReference)"
-        Condition="$([System.String]::Copy('%(FrameworkSdkReference.SDKName)').StartsWith('Microsoft.WindowsAppRuntime.'))" />
-    </ItemGroup>
-  </Target>
+	<Target Name="_RemoveFrameworkReferences" BeforeTargets="_ConvertItems;_CalculateInputsForGenerateCurrentProjectAppxManifest">
+		<ItemGroup>
+			<FrameworkSdkReference Remove="@(FrameworkSdkReference)" Condition="$([System.String]::Copy('%(FrameworkSdkReference.SDKName)').StartsWith('Microsoft.WindowsAppRuntime.'))" />
+		</ItemGroup>
+	</Target>
 </Project>

@@ -27,8 +27,8 @@
             VerticalAlignment="Center"
             Text="{Binding Greeting}" />
         <NumericUpDown  FormatString="f3" NumberFormat=""/>
-        <nud:IntegerUpDown />
-        <nud:NumericUpDown />
+        <nud:IntegerUpDown  Background="Red"/>
+        <nud:NumericUpDown  Background="Azure"/>
     </StackPanel>
 
 </Window>
